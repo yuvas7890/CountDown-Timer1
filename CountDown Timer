@@ -95,7 +95,6 @@ class Application(tk.Frame):
             self.running = False
         self.timer()
             
-
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("Countdown Timer")
