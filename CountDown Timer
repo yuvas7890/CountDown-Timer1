@@ -80,6 +80,13 @@ class Application(tk.Frame):
         self.running = False
         self.time = 0
         self.clock["text"] = "00:00:00"
+     
+     def resume(self):
+        self.pause_button.configure(text="Pause", command=lambda: self.pause())
+        self.master.bind("<Return>", lambda x: self.pause())
+        if self.running == False:
+            self.running = True
+        self.timer()
     
     def pause(self):
         self.pause_button.configure(text="Resume", command=lambda: self.resume())
@@ -87,15 +94,7 @@ class Application(tk.Frame):
         if self.running == True:
             self.running = False
         self.timer()
-       
-    def resume(self):
-        self.pause_button.configure(text="Pause", command=lambda: self.pause())
-        self.master.bind("<Return>", lambda x: self.pause())
-        if self.running == False:
-            self.running = True
-        self.timer()
             
-
 
 if __name__ == "__main__":
     root = tk.Tk()
